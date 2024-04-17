@@ -1,14 +1,5 @@
-- name: Install yay using makepkg if it isn't installed already
-  kewlfft.aur.aur:
-    name: yay
-    use: makepkg
-    state: present
-  become: yes
-  become_user: aur_builder
-
-
 - name: install package
-  kewlfft.aur.aur:
+  yum:
     name: "{{ item }}"
     state: present
   with_items:
@@ -18,4 +9,3 @@
     - unzip
     - podman
   become: yes
-  become_user: aur_builder

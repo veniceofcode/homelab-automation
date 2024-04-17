@@ -2,26 +2,26 @@
   hosts: infra-server
   vars:
     infra_server_hostname: infra-server
-    ler53_route_53_domain: ocplab.com
-    ler53_route_53_zone_id: Z1LKUX3GLO9GW9
+    ler53_route_53_domain: rrbanda.com
+    ler53_route_53_zone_id: Z059497730Y1H9B3R4LRM
 
   vars_files:
     -  vars/protected.yaml
 
   roles:
     # - {role: aur-builder-user}
-    # - {role: install-pkgs}
+    - {role: install-pkgs}
     # - {role: install-pi-hole}
     # - {role: install-haproxy}
     # - {role: install-glauth}
-    # - {role: install-upsnap}
+      - {role: install-upsnap}
     # - {role: mprahl.lets-encrypt-route-53, ler53_cert_common_name: sso.ocplab.com, become: yes}
-    # - {role: mprahl.lets-encrypt-route-53, ler53_cert_common_name: uptime.ocplab.com, become: yes}
-    # - {role: mprahl.lets-encrypt-route-53, ler53_cert_common_name: ocplab.com, become: yes}
-    # - {role: update-cert-permissions}
+     - {role: mprahl.lets-encrypt-route-53, ler53_cert_common_name: uptime.rrbanda.com, become: yes}
+     - {role: mprahl.lets-encrypt-route-53, ler53_cert_common_name: rrbanda.com, become: yes}
+     - {role: update-cert-permissions}
     # - {role: install-postgresql}
     # - {role: install-keycloak}
-    # - {role: install-uptime-kuma}
-    # - {role: install-homepage}
-    # - {role: install-prometheus}
+     - {role: install-uptime-kuma}
+     - {role: install-homepage}
+     - {role: install-prometheus}
     # - {role: update-route-53-addresses}
